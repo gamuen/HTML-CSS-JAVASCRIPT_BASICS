@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<title>9장 복습</title>
+
+ <script>
+
+function whatKeyDown(e) {
+ let str= "";
+ let div = document.getElementById("div");
+ div.innerHTML= ""; // div 객체 내용 초기화
+ str+= "e.key= " + e.key + "<br>";
+ str+= "e.code= " + e.code + "<br>";
+ div.innerHTML= str; // div 객체에 html 문자열 출력
+}
+
+ function calc(){
+    let sum = 0;
+    let print = document.getElementById("print");
+    let products = document.getElementsByName("products");
+    // <form>
+    // <input type='checkbox' name= 'products' value ='10000'> 
+    // 이다. 각 input form 은 checkbox type 을 갖습니다. 
+    // check box 태그가 선택이 된 것이죠. by getElementsByName("products");
+    // 그럼 이제 products.legnth > i ; i ++ 하면서 sum + = (products[i].value)
+
+    for(let i=0; i<products.length; i++){
+        if(products[i].checked == true){
+            sum += parseInt(products[i].value);
+        }
+        else{
+            continue;
+        }
+    }
+    print.innerHTML="<h1>지불하실 금액은 " + sum + "원 입니다.</h1>";
+ }
+
+
+let images = ["20241227224615.png", "20241227230102.png", "criaturas.jpg"];
+let imgs = new Array();
+for(let i=0; i<images.length; i++){
+    // Image 객체를 각 원소에 대응해 생성시킬 수 있습니다.
+    imgs[i] = new Image();
+    // Image 태그가 src 속성을 갖고 오듯이, 이 객체는 src 속성을 갖고 이미지의 루트를 계산합니다.
+    imgs[i].src = images[i];
+}
+let next = 1;
+function nextImage(obj){
+    obj.src = images[next];
+    next++;
+    if(next>=images.length){ next = 0; }
+}
+
+ function checkFilled(obj) {
+ if(obj.value== "") {// obj에 입력된 것이 없다면
+obj.focus(); // obj에만 포커스
+}
+ }
+
+ function changeImage() {
+ let sel= document.getElementById("sel");
+ let img= document.getElementById("myImg");
+ // onload 이벤트 리스너 속성은 이미지 태그가 로드된 후에 어떤 작업을 수행할지를 지정하는 속성이다.
+ // 이 속성은 이미지가 로드된 후에만 실행되므로, 이미지의 너비나 높이 정보를 얻을 수 있다.
+ img.onload= function () { // 이미지 크기 출력을 위한 innerHTML 저장.
+let mySpan= document.getElementById("mySpan");
+ mySpan.innerHTML= img.width+ "x" + img.height;
+ }
+ let index= sel.selectedIndex; // 선택된 옵션 인덱스를 고를 때는, selectedIndex 속성을 불러옵니다.
+img.src= sel.options[index].value; // <option>의 value 속성, sel.options 의 인덱스로써 선택하면
+    // 각 checked 된 option 태그가 선택이 됩니다.
+}
+
+ function findChecked() {
+ let found = null;
+ let kcity= document.getElementsByName("city");
+
+ for(let i=0; i<kcity.length; i++) {
+ if(kcity[i].checked == true) 
+found = kcity[i];
+ }
+ if(found != null) 
+alert(found.value+ "이 선택되었음");
+ else 
+alert("선택된 것이 없음");
+ }
+ </script>
+
+</head>
+
+ <body onload="alert('이 사이트.')">
+<!-- onload 리스너 속성은 해당 태그가 html 문서 상에서 업로드될 때 가장 먼저 실행되는 자바스크립트 코드를 갖는 속성이다. 자바스크립트 코드로는 무엇을 할 수 있는가?
+ alert(), document.div.style.backgroundColor, document.write, document.oncontextmenu 처럼 html 문서 전체의 이벤트 리스너 속성 값을 변경할 수 있다. -->
+
+ <img src="20241227224615.png" width="500" height="500" onmouseover="nextImage(this)">
+
+ 
+ <!-- 아래와 같이, key 값이 입력되었을 때 발생하는 이벤트에 대한 함수나 자바스크립트 코드를 실행시키고 싶을 때는, onkeydown 이벤트 리스너 속성에서 지정해 주면 됩니다.-->
+  <input type="text" id="text" onkeydown="whatKeyDown(event)">
+ <div id="div" style="background-color:skyblue; width:250px; height:50px">
+ </div>
+
+ <form>
+ <input type="checkbox" name="products" value="10000">모자 1만원
+<input type="checkbox" name="products" value="30000">구두 3만원
+<input type="checkbox" name="products" value="80000">명품가방 8만원<br>
+<input type="button" value="선택하신 제품들의 금액 총 합을 출력합니다." onClick="calc()">
+ </form>
+ <div id="print"> 1</div>
+
+ <form>
+    <input type="text" id="name" onblur="checkFilled(this)" > 
+    <input type="text" onfocus="checkFilled(this)">
+ </form>
+<!-- 아래에서 name 속성은 각 폼 요소들의 사용용도에 따른 분류용 값입니다. -->
+ <form>
+    <input type="radio" name="city" value="서울"> 서울
+    <input type="radio" name="city" value="부산"> 부산 
+    <input type="radio" name="city" value="대구"> 대구
+    <input type="button" value="find checked" onclick="findChecked()">
+ </form>
+<!-- onchange 이벤트리스너 속성은 대부분 select, input, database 와 같은 폼 태그의 상태 값이 바뀌는 이벤트가 발생할 때를 반영합니다. 이 이벤트는 사용자가 값을 바꾸어 포커스를 잃었을 때 발생합니다. -->
+ <form> 
+    <select value="이미지 크기 변경." onchange="changeImage()" id="sel">
+    <option value="20241227224615.png">이미지1</option>
+    <option value="20241227230102.png">이미지2</option>
+    <option value="criaturas.jpg">이미지3</option>
+    </select>
+ </form>
+ <img id="myImg" src="20241227224615.png" alt="이미지" width="200" height="200">
+<div>
+    <span id="mySpan">이미지 크기는:</span>
+</div>
+
+<script>
+
+// 이벤트리스너 속성의 결과값이 false 가 되면, 해당 태그의 디폴트 이벤트를 수행시키지 않는다는 사실을 기억하는가? 이는 oncontextmenu 속성에도 동일하게 적용될 것이다. 
+// 어떤 태그에 대해서도 아래의 함수를 oncontextmenu 속성에 할당하면, 해당 태그에서 마우스 오른쪽 버튼을 클릭했을 때, 브라우저의 디폴트 컨텍스트 메뉴가 나타나지 않을 것이다.
+// 이걸 그냥 document.oncontextmenu 속성에 할당하면, 문서 전체에서 마우스 오른쪽 버튼을 클릭했을 때, 브라우저의 디폴트 컨텍스트 메뉴가 나타나지 않게 되는데, 이는 문서 객체
+// 전체에 적용하라는 document 명시가 있기 때문이다. 이것이 바로 document.write() 함수와 document.getElementById() 함수가
+// document 객체에 속하는 함수라는 것을 의미한다. 즉, document 객체는 HTML 문서 전체를 나타내는 객체이므로, 이 객체에 속하는 함수들은 HTML 문서 전체에 적용되는 것이다.
+// 이는 가장 중요한 사실들 중 하나이다.
+document.oncontextmenu = function(){ return false; };
+</script>
+
+</body>
+
+</html>

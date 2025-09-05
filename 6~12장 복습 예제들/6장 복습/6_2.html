@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset = 'utf-8.0'>
+<title> 6_2 </title>
+<style> 
+    
+</style>
+</head>
+
+<body>
+
+<script>
+
+let ret = prompt("1~10 중 원하는 소수를 입력하세요", "1");
+
+if (ret == null) {
+    document.write("취소되었습니다.");
+} else if (ret < 1 || ret > 10) {
+    document.write("잘못된 입력입니다.");
+} else {
+    if(ret == 2 || ret == 3 || ret == 5 || ret == 7) {
+        document.write("입력한 소수는 " + ret + "입니다.");
+    } else {
+        document.write("입력한 수는 소수가 아닙니다.");
+    }
+    document.write("<br>");
+}
+
+let square_prime = 0;
+switch(ret){
+    case "2":
+        square_prime=ret*ret;
+        break;
+    case "3":
+        square_prime=ret*ret;
+        break;
+    case "5":
+        square_prime=ret*ret;
+        break;
+    case "7":
+        square_prime=ret*ret;
+        break;
+    default:
+        square_prime=0;
+        break;
+}
+document.write("입력하신 소수의 제곱은 "+square_prime+"입니다.");
+document.write("<br>");
+
+let a=1, a1=12, a2=25;
+document.write(a + "<br>");
+
+let b=a++;
+let c=++a;
+document.write(b + "<br>");
+document.write(c + "<br>");
+// a 는 3에서 2가 곱해지므로 6으로 증가합니다.
+a*=2;
+document.write(a + "<br>");
+// 삼항 연산자의 true 결과는 a1, false 결과는 a2입니다.
+let b1=(a>5)? a1:a2;
+document.write(b1 + "<br>");
+// b2 는 a가 5보다 작거나, a1이 a2보다 작은 경우 true입니다.
+let b2=(a<5)||(a1<a2);
+document.write(b2 + "<br>");
+// 문자열 연산자와 산술 연산자의 차이를 아래에서 볼 수 있습니다. 반면, 문자열과 숫자를 문자열 연산자로 더하면, 문자열로 변환되어 나옵니다.
+document.write(a+b+"3"+"4");
+
+
+</script>
+
+</body>
+
+</html>

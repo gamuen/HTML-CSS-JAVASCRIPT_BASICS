@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+ <html>
+ <head>
+ <meta charset="utf-8">
+ <title>this 활용</title>
+ <script>
+ function change1() {
+    let spanArray= document.getElementsByTagName("span");
+    // getElementsByTagName() 메소드는 해당 태그 이름을 가진 모든 객체를 배열 형태로 반환한다.
+    for(let i=0; i<spanArray.length; i++) {
+        var span = spanArray[i];
+        span.style.color= "orchid";
+        span.style.fontSize= "30px";
+    }
+ }
+
+ function change(obj, size, color) {
+ obj.style.color= color;
+ obj.style.fontSize= size;
+ }
+ function change2(obj,size,color){
+ obj.style.color= color;
+ obj.style.fontSize= size;
+ }
+ </script>
+ </head>
+ <body>
+
+ 저는 빨간 <span onclick="this.tagName = span">사과</span>를 좋아해서
+아침마다 한 개씩 먹고 있어요. 운동할 때는 중간 중간에
+<span>바나나</span>를 먹지요. 탄수화물 섭취가 빨라
+힘이 납니다. 또한 달콤한 향기를 품은 <span>체리</span>와
+여름 냄새 물씬 나는 <span>자두</span>를 좋아합니다.
+<br>
+    <!-- on click 이벤트 속성에서는 원하는, script 태그에서 정의했던 함수를 실행하거나, 또는 this.style.css property name = value; 형태의 문구로써 해당 태그의 속성을 수정할 수 있다. -->
+ <button onclick="change(this, '50px', 'red')">버튼</button>
+ <br>
+ <button onclick="change(this, '30px', 'blue')">버튼</button>
+ <br>
+
+ <button onclick="change1()">누르세요</button>
+
+ <!--  script 태그에서는 오직 특정 function 을 정의해 특정 태그의 onclick 속성 안에서 실행하거나, 특정 객체 변수를 선언한 다음, 원하는 태그의 아이디 속성에 적용할 수 있다. -->
+
+ <!-- document.getElementById("ID") 로 특정 객체 변수를 정의할 수 있고, 정의한 객체 변수는 특정 태그의 id 속성에 ID 값으로써 적용된다.  -->
+<!-- 그렇다면 document.getElementByTagName("Tagname") 으로는 어떠한가? 해당 tagname 값을 특정 태그의 이벤트 리스너 속성 내에서 this.tagName = tagname 으로 할당하면 
+ 해당 javascript 객체에서 설정된 모든 스타일 속성이 해당 태그의 해당 이벤트 시에 부여되는 것이다.-->
+ <script>
+    
+ </script>
+
+ <div onclick="change(this, '25px', 'orange')">
+여기 클릭하면 크기와 색 변경
+</div>
+ </body>
+ </html>

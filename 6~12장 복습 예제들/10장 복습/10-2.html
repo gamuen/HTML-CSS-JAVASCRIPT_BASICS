@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+<meta charset ='ut-8.0'>
+<title> 10장 복습 2.</title>
+
+<style>
+
+
+</style>
+
+<script>
+
+
+
+</script>
+
+</head>
+
+
+<body onload="printScreen()">
+    <div id="div"></div>
+<!-- history 객체의 back 함수는 -->
+ <button onclick="history.back()">back()</button>
+ <button onclick="history.forward()">forward()</button>
+ <button onclick="history.go(-1)">go(-1)</button>
+
+<script>
+
+ function printScreen() {
+// screen 객체는 현재 화면의 크기, 색상 깊이, 픽셀 깊이 등의 정보를 담고 있는 객체이다. 이 객체는 미리 생성하지 않아도 자동으로 생성되어 사용 가능하고, html 문자열을 함수마다 반환한다.
+ let text = "availHeight:".fontcolor('blue') + screen.availHeight + "<br>";
+ text += "availWidth:".fontcolor('blue') + screen.availWidth + "<br>";
+ text += "colorDepth:".fontcolor('blue') + screen.colorDepth + "<br>";
+ // fontcolor() 함수는 문자열을 HTML 코드로 변환하는 함수로, 매개변수로 지정한 색상으로 문자열을 반환한다.
+ text += "pixelDepth:".fontcolor('blue')+ screen.pixelDepth + "<br>";
+ text += "height:".fontcolor('blue') + screen.height + "<br>";
+ text += "width:".fontcolor('blue') + screen.width + "<br>";
+ document.getElementById("div").innerHTML = text;
+ }
+
+ function load() {
+ let select = document.getElementById("site");
+ window.location=select.options[select.selectedIndex].value;
+    // window.location은 현재 페이지의 URL을 나타내는 객체로, 이를 통해 다른 페이지로 이동할 수 있다.
+    // select.options[select.selectedIndex].value는 선택된 옵션의 값을 index 값을 통해 가져오는 코드이다.
+ }
+
+
+</script>
+
+<select id="site">
+ <option value="http://www.naver.com">네이버
+<option value="http://www.google.com">구글
+<option value="http://www.microsoft.com">마이크로소프트
+</select><br>
+
+<!-- 어떤 태그이든, onclick, onmouseover, onmouseout 과 같은 이벤트 리스너 속성 부여를 통해서 이벤트에 대한 윈도우 객체에 대한 새로운 이벤트/ css 스타일 속성 변화를 일으킬 수 있다.-->
+ <button onclick="load()">웹 사이트 접속</button>
+
+</body>
+
+</html>

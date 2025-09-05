@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>7_1</title>
+
+<script>
+function print(m,a) { document.write( m+ a.toString() + "<br>"); }
+
+</script>
+
+</head>
+
+<body>
+
+<script>
+
+
+let list=[1,2,3,4,5,6,7,8,9,10];
+let array= new Array(1,2,3,4,5);
+
+let three=list[2];
+let two=array[1];
+let length_ar=array.length;
+let length_list=list.length;
+
+document.write("three = " + three + "<br>");
+document.write("two = " + two + "<br>");
+document.write("length_ar = " + length_ar + "<br>");
+document.write("length_list = " + length_list + "<br>");
+
+ let a = new Array("황", "김", "이","여");
+ let b = new Array("박");
+ let c;
+ document.write("<br>");
+ print("배열 a = ", a);
+ print("배열 b = ", b);
+
+ document.write("<hr>");
+ c = a.concat(b); // c는 a와 b를 연결한 새 배열
+print("c = a.concat(b)후 c = ", c);
+ print("c = a.concat(b)후 a = ", a);
+
+ c = a.join("****"); // c는 배열 a를 연결한 문자열
+print("c = a.join() 후 c = ", c);
+ print("c = a.join() 후 a = ", a);
+ document.write("<br>");
+
+ c = a.reverse(); // a.reverse()로 a 자체 변경. c는 배열
+print("c= a.reverse() 후 c = ", c); 
+print("c= a.reverse() 후 a = ", a);
+
+ c = a.slice(1, 3); // c는 새 배열
+print("c= a.slice(1, 3) 후 c = ", c);
+ print("c= a.slice(1, 3) 후 a = ", a);
+document.write("<br>");
+
+ c = a.sort(); // a.sort()는 a 자체 변경. c는 배열
+print("c= a.sort() 후 c = ", c);
+ print("c= a.sort() 후 a = ", a);
+
+ c = a.toString(); // toString()은 원소 사이에 ","를 넣어  문자열 생성, 따라서 c 는 문자열
+document.write("a.toString() 후 c는 다음의 문자열임 : " + c); // c 는 문자열
+
+let today=Date();
+let today_seconds=Date.now();
+document.write("<br><br>오늘은 " + today + "입니다.<br>");
+document.write("오늘은 " + today_seconds + "초입니다.<br>");
+
+if(today_seconds%2==0){
+    document.body.style.backgroundColor="blue";
+}
+else{
+    document.body.style.backgroundColor="red";
+
+}
+//document.write() 는 html 콘텐츠를 바꾸지만 css 스타일을 바꾸는 명령을 실행할 수는 없다. 따라서 반드시 자신이 스타일을 변경하길 원하는 태그.style.해당 태그의 속성 = "변경할 값"을 사용해야 한다.
+
+let string=new String("this is string by String class!");
+document.write("<br>string = " + string + "<br>");
+document.write("string.length = " + string.length + "<br>");
+document.write("string first character = " + string[0] + "<br>");
+
+ let a1 = new String("Boys and Girls");
+ let b1 = "!!";
+ document.write("a1 : " + a1 + "<br>");
+ document.write("b1 : " + b1 + "<br><hr>");
+ document.write(a1.charAt(0) + "<br>");
+ document.write(a1.concat(b1, "입니다") + "<br>");
+ document.write(a1.indexOf("s") + "<br>");
+ document.write(a1.indexOf("And") + "<br>");
+ document.write(a1.slice(5, 8) + "<br>");
+ document.write(a1.substr(5, 3) + "<br>");
+ document.write(a1.toUpperCase() + "<br>");
+ document.write(a1.replace("and", "or") + "<br>");
+ document.write("   kitae  is".trim() + "<br><hr>");
+
+  let sub = a1.split(" ");
+ document.write("a를 빈칸으로 분리한 sub 배열이 생성되었다.<br>");
+ for(let i=0; i<sub.length; i++)
+ document.write("sub" + i + "=" + sub[i] + "<br>");
+
+ document.write("<hr>String 객체의 메소드를 실행 후 a1 와 b1 변함 없음<br>");
+ document.write("a1 : " + a1 + "<br>");
+ document.write("b1 : " + b1 + "<br>");
+
+let math_number1 =Math.random(); // 0.0 <= math_number1 < 1.0
+let math_number2 =Math.floor( Math.random()*10 ); // 0 <= math_number2 <= 9 
+let math_number3 =Math.ceil( Math.random()*10 ); // 1 <= math_number3 <= 10
+
+document.write("<br>math_number1 = " + math_number1 + "<br>");
+document.write("math_number2 = " + math_number2 + "<br>");
+document.write("math_number3 = " + math_number3 + "<br>");
+document.write("<br>Math.PI = " + Math.PI + "<br>");
+document.write("Math.E = " + Math.E + "<br>");
+document.write("Math.abs(-10) = " + Math.abs(-10) + "<br>");
+document.write("Math.sqrt(16) = " + Math.sqrt(16) + "<br>");
+document.write("Math.pow(2, 3) = " + Math.pow(2, 3) + "<br>");
+
+</script>
+
+</body>
+
+
+</html>

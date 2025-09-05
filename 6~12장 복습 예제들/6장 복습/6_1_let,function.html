@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset = 'utf-8.0'>
+<title> 6_1 </title>
+<style> 
+    
+</style>
+
+<script> 
+ function over(obj) {
+ obj.src="joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg";
+ }
+ function out(obj) {
+ obj.src="Mouthwatering Cheesy Garlic Bread Recipe_ Easy & Delicious!.jpg";
+ }
+ /* this is the annotation for the above function.
+    this function is used to change the image when mouse is over the image.
+ */
+
+const pie = 3.14159265358979323846; // this is the value of pi
+let r=25; // this is the radius of the circle
+let area=r*r*pie; // this is the area of the circle
+
+let b1=true;
+let b2=b1*false;
+let st="hello world!"; // this is a string
+var height=6E+2;
+let n=0xF; // this is a hexadecimal number(16진수)
+let mod=3%17; // this is the modulus operator(나머지 연산자)
+
+var r1=23;
+function f1(){
+    var r1=45; // this is a local variable
+    document.write(r1+"<br>"); // this will print 45
+    document.write(this.r1+"<br>"); // this will print 23
+    document.write(this.height+"<br>"); // this will print 600
+    document.write(this.n); // this will print 15
+
+    // global variable declared by let will not be hoisted to the top of the function
+    // but global variable declared by var will be hoisted to the top of the function
+}
+</script>
+</head>
+
+<body>
+    <!--  Below <img> tag has its listener property in it to load specific javascript function named onmouseover. -->
+<img src="joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg" alt="Image" width="500" height="600" onmouseover="this.src='Mouthwatering Cheesy Garlic Bread Recipe_ Easy & Delicious!.jpg'" onmouseout="this.src='joseph-gonzalez-zcUgjyqEwe8-unsplash.jpg'">
+<img src="Mouthwatering Cheesy Garlic Bread Recipe_ Easy & Delicious!.jpg" alt="Image" width="500" height="600" onmouseover=over(this) onmouseout=out(this)>
+
+<script> 
+    document.write("<h1 style='color:purple;'>This html content is written by javascript space! <br> HAHAHA </h1>");
+    alert("you have clicked this!");
+    f1();
+    document.write("<br>"+mod+"<br>");
+    document.write(n);
+</script>
+</body>
+
+</html>
