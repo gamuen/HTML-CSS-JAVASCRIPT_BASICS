@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" >
+    <title> </title>
+
+    <style> 
+    p {
+ background : yellow; width : 200px; height : 60px; padding : 10px; border : 20px solid lightgray;
+}
+
+ span { 
+font : normal 80px verdana; background-color:white
+ }
+ .dropText {
+ text-shadow : 12px 12px;
+ }
+ .redText { 
+text-shadow : 12px 12px red;
+ }
+ .blurText {
+ text-shadow : 12px 12px 12px skyBlue;
+ }
+ .glowEffect {
+ text-shadow : 0px 0px 12px red;
+ }
+ .wordArtEffect { 
+color : white;
+ text-shadow : 0px 0px 12px darkBlue;
+ }
+ .threeDEffect { 
+color : white;
+ text-shadow : 6px 6px 12px black;
+ }
+ .multiEffect { 
+color : yellow;
+ text-shadow : 8px 8px 8px black, 
+0 0 35px blue, 0 0 10px darkblue;}
+
+ #round { border-image: url("border.png") 30 round; }
+ #repeat { border-image: url("border.png") 30 repeat; }
+ #stretch { border-image: url("border.png") 30 stretch; }
+
+    </style>
+</head>
+
+<body>
+    <p id="round">
+        1
+    </p>
+    <p id="repeat">
+        2
+    </p>
+    <p id="stretch">
+        3
+    </p>
+
+    <span class="dropText">D1</span>
+    <span class="redText">C1</span>
+    <span class="blurText">B1</span>
+    <span class="glowEffect">G1</span>
+    <span class="wordArtEffect">W1</span>
+    <span class="threeDEffect">3D</span>
+    <span class="multiEffect">M1</span>
+
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" >
+    <title>font, margin, box </title>
+    <style> 
+    div{ margin-left:40px; margin-right:40px; margin-top:40px;}
+
+    #i1{ text-align:center; color:bisque; font-family:serif;}
+    #i2:focus{ text-align:center; color:bisque; font-style:italic;}
+    #i3:active{ text-align:right; color:bisque; font-family:consolas;}
+
+    #i4{ border-width:15px; border-left-style:dotted; border-right-style:dashed;
+        border-top-style:solid; border-bottom-style:double;
+        border-color:rgb(194, 135, 58); }
+
+    #i_repeat{ border-image:url("border.png") 30 repeat;}
+    #i_stretch{ border-image:url("border.png") 30 stretch;}
+    #i_round{ border-image:url("border.png") 30 round;}
+
+    #i0:hover{ background-color:skyblue; background-size:200px 170px; 
+        background-image:url("basil-3388692_1920.jpg");
+        background-position:left top;
+        width:100%; height:200px; color:yellow; background-repeat:repeat-x;
+    }
+
+    .b{ background:brown; border-style:solid; border-color:peru; margin:40px;
+    border-width:30px; padding:25px;}
+
+    .c1{ border-radius: 2px 10px 30px 40px; border:17px groove yellow;
+    }
+
+    .c2{background:yellow; height:60px; width:200px; padding:10px; border:20px solid lightgray;}
+    </style>
+    <!-- margin, padding 은 색 설정을 할 수 없다. padding 의 색은 배경색과 같고, 
+     margin 의 색은 늘 하얀색이다. -->
+</head>
+
+<body style="margin:0px;">
+    <div style="background-color:blue">1</div>
+    <div class="b">2</div>
+    <div id="i1" style="background-color:blue">i3d3i3</div>
+    <div id="i2" style="background-color:blue">i4d4i4</div>
+    <div id="i3" style="background-color:blue">i5i5i5</div>
+    <div id="i0"> qwer </div>
+
+    <p style="border:17px groove yellow">
+    foreign residents
+    </p>
+    
+    <p id="i4">
+    foreign passport<br><br><br><br>
+    </p>
+    <p class="c1">
+    visa certificate condition
+    </p>
+    
+    <!-- 아래 코드에서 보다시피, 클래스 셀렉터/ 태그 셀렉터에서는 border 너비, 색깔, 스타일과 padding 값, 
+     태그 블록의 너비, 높이 값, 배경색 값을 설정하고, 
+
+     id 셀렉터에서는 해당 border 사진의
+     픽셀 자르기 크기 값, 자동 채우기 스타일 지정, url() 값을 해당 사진의 속성으로써 적용하면 된다.-->
+
+    <p class="c2" id="i_repeat" >
+    herb small image
+    </p>
+    <p class="c2" id="i_stretch" >
+        herb small image
+    </p>
+    <p class="c2" id="i_round" >
+        herb small image
+    </p>
+
+
+</body>
+
+</html>

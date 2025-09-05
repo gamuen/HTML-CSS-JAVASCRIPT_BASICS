@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta charset="utf-8" >
+    <title> iframe, video, semantic tag, figure</title>
+    <style> 
+    html, body{ margin:0; padding:0; height:100% }
+    header{ width:100%; height:15%; background:yellow; color:rgb(31, 31, 4); }
+
+    nav{ height: 50%; width:30%; background: blueviolet; color:rgb(214, 226, 107); float:left;}
+    section{ height: 50%; width:35%; background:sienna; color:black; float:left;}
+
+    article{ height: 50%; width:25%; background: rgb(164, 183, 190); float:left;}
+    aside{ height: 50%; width:10%; background: rgb(56, 180, 230); float:left;}
+    footer{ height: 35%; width:100%; background: rgb(16, 16, 146); clear:both; }
+
+    tr:nth-child(2n) td:nth-child(2n){ background-color:red;}
+    tr:nth-child(2n) td:nth-child(2n+1){ background-color:blue;}
+
+    tr:nth-child(2n+1) td:nth-child(2n+1) { background-color:red;}
+    tr:nth-child(2n+1) td:nth-child(2n) { background-color:blue;}
+    </style>
+</head>
+
+<body>
+
+<header> 1 
+    <h2>practice website for html, css</h2>
+</header>
+
+<nav>2 
+    <iframe src="2_base,dl,th,a,id.html" width="40%" height="50%">
+    </iframe>
+    <iframe src="basil-3388692_1920.jpg" width="55%" height="50%"> 
+    </iframe>
+    <iframe src="basil-3388692_1920.jpg" width="100%" height="45%"> 
+    </iframe>
+</nav>
+
+<section>3 
+    <video src="2_iframe, video, semantic.html - 2,3 장 복습 - Visual Studio Code 2025-04-05 13-29-12.mp4" width="390" height="380" controls> </video>
+    <meter value="0.725" max="2.0"></meter>
+    <progress value="2" max="10"> </progress>
+</section>
+
+<aside> 5
+    <figure> <figcaption> int <mark>number</mark> list from 1 to 10</figcaption>
+    <pre>1234567
+    8 9 
+    10</pre></figure>
+</aside>
+
+<article>4
+    <details> <summary>animals</summary>
+    <ul>
+        <li>hippo</li>
+        <li>tigers</li>
+        <li>lion</li>
+    </ul>
+    </details>
+
+    <table>
+        <tbody>
+        <tr> <td> 11</td> <td> 21</td> <td> 31</td> <td> 41</td> </tr>
+        <tr> <td> 11</td> <td> 21</td> <td> 31</td> <td> 41</td> </tr>
+        <tr> <td> 11</td> <td> 21</td> <td> 31</td> <td> 41</td> </tr>
+        <tr> <td> 11</td> <td> 21</td> <td> 31</td> <td> 41</td> </tr>
+        </tbody>
+    </table>
+</article>
+
+<footer>6</footer>
+
+
+</body>
+
+</html>
