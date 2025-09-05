@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<title> </title>
+<meta charset = 'utf-8.0'>
+
+<style>
+button.cal:hover{ background-color:aqua; }
+button.cal{ width:50px; height:50px; display:inline-block; background-color:blueviolet; }
+button.num{ width:50px; height:50px; display:inline-block; background-color:rgb(189, 188, 188); }
+button.num:hover{ background-color:orange; }
+button.do{ width:50px; height:50px; display:inline-block; background-color:rgb(189, 188, 188); }
+button.do:hover{ background-color:orange; }
+button.do1{ width:50px; height:50px; display:inline-block; background-color:rgb(189, 188, 188); }
+button.do1:hover{ background-color:orange; }
+#result{ width:200px; height:50px; display:inline-block; background-color:skyblue;}
+
+</style>
+
+<script>
+
+</script>
+
+</head>
+
+<body>
+<form>
+    <input type="text" id="result" readonly> 
+</form>
+<br> 
+<button id="C" class="do">C</button> <button id="N" class="do">N</button> <button id="%" class="do1">%</button> <button id="/" class="cal">/</button> <br>
+<button id="7" class="num">7</button> <button id="8" class="num">8</button> <button id="9" class="num">9</button> <button id="*" class="cal">*</button> <br>
+<button id="4" class="num">4</button> <button id="5" class="num">5</button> <button id="6" class="num">6</button> <button id="-" class="cal">-</button> <br>
+<button id="1" class="num">1</button> <button id="2" class="num">2</button> <button id="3" class="num">3</button> <button id="+" class="cal">+</button> <br>
+<button id="0" style="width:104px;" class="num">0</button> <button id="." class="num">.</button> <button id="equal" class="do">=</button>
+
+<script>
+
+let result = document.getElementById('result');
+let numbers = document.getElementsByClassName('num');
+let calculs = document.getElementsByClassName('cal');
+let return_res = document.getElementById('equal');
+let clear = document.getElementById('C');
+let None_do = document.getElementById('N');
+
+let str="";
+
+for(let i=0; i<calculs.length;i++){
+    calculs[i].onclick =function(){
+        // innerText 는 해당 버튼 태그 객체가 감싸고 있는 html 콘텐츠 내용을 그대로 문자열로써 반환합니다.
+        str+=this.innerText;
+        console.log(str);
+    };
+}
+for(let i=0; i<numbers.length;i++){
+    numbers[i].onclick =function(){
+        str+=this.innerText;
+        result.value=this.innerText;
+        console.log(str);
+    };
+}
+return_res.onclick = function(){
+    result.value = eval(str);
+     str = result.value;
+}
+clear.onclick = function(){
+    result.value = "";
+    str="";
+}
+None_do.onclick = function(){
+}
+
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>200194 정동진 </title>
+
+<script> 
+
+let array = new Array();
+for(let i=0; i<10; i++){
+    array[i] = Math.floor(Math.random() * 100) + 1;
+    document.write(array[i] + " ");
+}
+document.write("<br>제일 큰 수: " + Math.max(...array));
+document.write("<br>제일 작은 수: " + Math.min(...array)+"<br> <hr>");
+let temp = new Array();
+
+for(let i=0; i<10; i++){
+    temp[i] = Math.min(...array);
+    array[array.indexOf(temp[i])] = 101;
+    document.write(temp[i] + " ");
+}
+
+let even_number=new Array();
+let odd_number=new Array();
+
+for(let i=0; i<10; i++){
+    if(temp[i] % 2 == 0){
+        even_number.push(temp[i]);
+    } else {
+        odd_number.push(temp[i]);
+    }
+}
+document.write("<br>짝수: ");
+for(let i=0; i<even_number.length; i++){
+    document.write(even_number[i]+" ");
+}
+document.write("<br>");
+document.write("홀수: ");
+for(let i=0; i<odd_number.length; i++){
+    document.write(odd_number[i]+" ");
+}
+
+</script>
+
+</head>
+
+<body>
+
+
+
+
+<script>
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>200194 정동진 </title>
+
+<script> 
+ let champion = new Array("tahmkench", "teemo", "yummi", "tryndamere", "yasuo", "heimerdinger", "aurelionsol", "ahri", "aurelionsol", "aphelios");
+for (let i = 0; i < champion.length; i++) {
+    document.write(champion[i]+" ");
+}
+document.write("<br>");
+let lengths=new Array();
+for(let i=0; i<champion.length; i++){
+    lengths[i]=champion[i].length;
+}
+document.write("가장 길이가 긴 문자열은:"+champion[lengths.indexOf(Math.max(...lengths))]+"<br>");
+document.write("가장 길이가 짧은 문자열은:"+champion[lengths.indexOf(Math.min(...lengths))]+"<br>");
+let alignedChampion = champion.sort();
+document.write("사전 순으로 가장 앞에 나오는 원소는:"+alignedChampion[0]+"<br>");
+document.write("사전 순으로 가장 뒤에 나오는 원소는:"+alignedChampion[alignedChampion.length-1]+"<br>");
+
+let temp1 = new Array();
+let temp2 = new Array();
+for(let i=0; i< alignedChampion.length; i++){
+    document.write(alignedChampion[i]+"&nbsp;");
+    
+}
+document.write("<br> <hr> <br>");
+temp1.push(alignedChampion[0][0]);
+
+for(let i=0; i< alignedChampion.length; i++){
+        if(alignedChampion[i][0]==temp1[temp1.length-1]){
+            continue;
+        }else{
+            temp1.push(alignedChampion[i][0]); 
+        }
+}
+
+for(let j=0; j<temp1.length; j++){
+
+    for(let i=0; i<alignedChampion.length; i++){
+
+        if(alignedChampion[i][0]==temp1[j]){
+            document.write(alignedChampion[i]+"&nbsp;");
+        }
+    }
+    document.write("<br>");
+}
+
+
+</script>
+
+</head>
+
+<body>
+
+
+
+
+<script>
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

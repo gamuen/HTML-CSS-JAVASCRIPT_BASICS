@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<title> </title>
+<meta charset = 'utf-8.0'>
+
+<style>
+
+
+</style>
+
+<script>
+
+
+</script>
+
+</head>
+
+<body>
+
+<img src='cristina-anne-costello-RC04a-kG-bM-unsplash.jpg' width="500" height="500"
+onclick="ImageChange()" id="img"
+style="border:10px blue solid;"> 
+
+
+<script>
+
+let images = ['cristina-anne-costello-RC04a-kG-bM-unsplash.jpg','javier-balseiro-MNQ1qLsFbh4-unsplash.jpg',
+'katherine-chase-0DtoVEDaJbs-unsplash.jpg','party-3655712_1920.jpg','salmon-774482_1920.jpg','woman-8344944_1920.jpg'];
+let img = document.getElementById('img');
+let number = 1;
+function ImageChange(){
+    img.src = images[number];
+    number++;
+    if( number >= images.length){ number=0; }
+}
+
+
+</script>
+
+
+</body>
+
+</html>

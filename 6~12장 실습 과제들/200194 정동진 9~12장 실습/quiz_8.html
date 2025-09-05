@@ -1,0 +1,127 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> </title>
+<meta charset = 'utf-8.0'>
+
+<style>
+div{ vertical-align: top; height:80px; width:200px; font-size:20px; font-weight:bold; border:3px solid black; display:inline-block;}
+input{ height:50px; font-size:20px; font-weight:bold; }
+</style>
+</head>
+
+<body>
+<form>
+        <input type="button" id="start_game" style="display:inline-block" value="게임시작.">
+</form>
+        <div style="display:inline-block" id="leftover"></div> <div style="display:inline-block" id="failure"></div>
+        <div style="display:inline-block" id="left_time"></div> <div style="display:inline-block" id="state_of_game"></div>
+<hr>
+<br>
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<br>
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<br>
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+<img style="display:inline-block" src="img1.gif"><img style="display:inline-block" src="img1.gif">
+
+<script>
+
+let leftover = document.getElementById('leftover');
+let failure = document.getElementById('failure');
+let left_time = document.getElementById('left_time');
+let state_of_game= document.getElementById('state_of_game');
+
+let images = document.getElementsByTagName('img');
+let start_game = document.getElementById('start_game');
+let initialization = [];
+let remember_index = [];
+let failed_number = 0;
+let left_over = 0;
+start_game.onclick = calculate_random_index;
+
+function calculate_random_index(){
+    for (let i = 0; i < 24; i++) {
+    images[i].src = 'img1.gif';
+    images[i].style = "height:85px; width:50px;";
+    }
+
+    initialization = [];
+    remember_index = [];
+    failed_number = 0;
+    left_over = 0;
+    start_game.style.display = "none";
+    for(let i = 0; i < 8; i++){
+        setTimeout( () => {left_time.innerText = "시간:" +(8 - i) + "초 남았습니다.";}, i * 1000 );
+    }
+    for(let i=0;i<8;i++){
+        random_index = Math.floor(Math.random()*24);
+        if(remember_index.includes(random_index)){
+            random_index +=1;
+            images[random_index].src='img2.gif';
+            images[random_index].style="height:85px; width:50px;"
+            remember_index[i]=random_index;
+            initialization[i]=random_index;
+        }else{
+        images[random_index].src='img2.gif';
+        images[random_index].style="height:85px; width:50px;"
+        remember_index[i]=random_index;
+        initialization[i]=random_index;
+        }
+    }
+    timerID = setTimeout(show_game_mode,8000);
+    setTimeout( show_left_puppy, 23000 );
+    for(let i = 0; i < 15; i++){
+        setTimeout( () => {left_time.innerText = "시간:" +(15 - i) + "초 남았습니다.";}, (8+i) * 1000 );
+    }
+    setTimeout( () => {start_game.style.display = "inline-block";},23000);
+}
+function show_game_mode(){
+    left_over = remember_index.length;
+    for(let i=0;i<24;i++){
+        images[i].src='img1.gif';
+        images[i].onclick = function (){
+            if(remember_index.includes(i)){
+                images[i].src='img2.gif';
+            // 1개씩 remember_index 에서 아래의 splice(n index,m number) 을 사용해 제거합니다.
+                remember_index.splice(remember_index.indexOf(i), 1);
+                left_over-=1;
+                leftover.innerText = left_over +"개 남았습니다.";
+            }else{
+                failed_number+=1;
+                failure.innerText = failed_number +"번 실패했습니다.";
+                leftover.innerText = left_over +"개 남았습니다.";
+            }
+            if( left_over ==0){
+                state_of_game.innerText = "성공입니다!";
+            }
+            if( failed_number >= 5){
+                state_of_game.innerText = "게임 오버입니다!";
+            }
+    };
+    }
+}
+function show_left_puppy(){
+    for(let i=0;i<remember_index.length;i++){
+        images[remember_index[i]].src='img2.gif';
+    }
+    leftover.innerText ="";
+    left_time.innerText ="";
+    failure.innerText ="";
+    state_of_game.innerText="";
+    for(let i=0;i<24;i++){
+        images[i].onclick =false;
+    }
+}
+
+</script>
+</body>
+</html>

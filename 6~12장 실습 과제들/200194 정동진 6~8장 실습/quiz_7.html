@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>200194 정동진 </title>
+<style>
+    div{
+        display: inline-block;
+        width:60px;
+        padding :10px;
+    }
+</style>
+
+<script> 
+
+
+</script>
+
+</head>
+
+<body>
+
+<h3> 15개의 css2 색이름과 색</h3>
+<hr>
+<div>
+<table id="table">
+    <tr> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> </tr>
+    <tr> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> </tr>
+    <tr> <td> </td> <td> </td> <td> </td> <td> </td> <td> </td> </tr>
+
+</table>
+</div>
+
+<script>
+
+let colorNames = [
+    "maroon","red", "orange", "yellow", "olive",
+    "purple", "fuchsia", "white", "lime", "green",
+    "navy", "blue", "aqua", "teal", "black"
+];
+
+let table = document.getElementById("table");
+for(let j=0; j<3; j++){
+    if(j==2){
+    for(let i=0; i<5; i++){
+    const colorIndex = 5*j+i;
+
+    // cell 내용 및 배경색 설정
+    table.rows[j].cells[i].innerHTML = `${colorNames[colorIndex]}`;
+
+    table.rows[j].cells[i].style.backgroundColor = colorNames[colorIndex];
+
+    table.rows[j].cells[i].style.color = "red";
+    table.rows[j].cells[i].style.textAlign = "center";
+
+    }
+    }else{
+    for(let i=0; i<5; i++){
+    const colorIndex = 5*j+i;
+
+    // cell 내용 및 배경색 설정
+    table.rows[j].cells[i].innerHTML = `${colorNames[colorIndex]}`;
+
+    table.rows[j].cells[i].style.backgroundColor = colorNames[colorIndex];
+
+    table.rows[j].cells[i].style.color = "black";
+    table.rows[j].cells[i].style.textAlign = "center";
+    }
+    }
+    
+}
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+
+<title> </title>
+<meta charset = 'utf-8.0'>
+<script>
+
+let calculs = ['/','+','-','*'];
+let correct = "";
+let numbers = new Array();
+
+function createquiz(){
+    numbers = [];
+    let div0 = document.getElementById('Time_left');
+    let div1 = document.getElementById('expression');
+    let div2=document.getElementById('print_result');
+    let insert = document.getElementById('inserted');
+
+    for(let i=0; i<3; i++){
+    numbers.push(Math.floor(Math.random()*100)+1);
+}
+let cal1 = calculs[Math.floor((Math.random()*10))%4];
+let cal2 = calculs[Math.floor((Math.random()*10))%4];
+
+timerID = setTimeout(timeover, 10000);
+    for(let i = 0; i < 10; i++){
+        setTimeout( () => {div0.innerHTML = (10 - i) + "초 남았습니다.";}, i * 1000 );
+    }
+
+let expression = numbers[0]+cal1+numbers[1]+cal2+numbers[2];
+correct= eval(numbers[0]+cal1+numbers[1]+cal2+numbers[2]);
+div1.innerHTML = expression;
+}
+
+function timeover(){
+    let div2=document.getElementById('print_result');
+    let insert = document.getElementById('inserted');
+    window.alert("10초가 다 지났습니다.");
+    if(parseFloat(insert.value)==correct){
+        div2.innerHTML = "정답입니다!";
+        document.body.style.backgroundColor = "lightblue";
+    }else if(insert.value==""){
+        div2.innerHTML = "정답을 입력하세요.";
+        document.body.style.backgroundColor = "lightyellow";
+    }else{
+        div2.innerHTML = "틀렸습니다!";
+        document.body.style.backgroundColor = "coral";
+    }
+}
+ function evaluate1() {
+    let div2=document.getElementById('print_result');
+    let insert = document.getElementById('inserted');
+ clearTimeout(timerID); // 타이머 중단
+if(parseFloat(insert.value)==correct){
+        div2.innerHTML = "정답입니다!";
+        document.body.style.backgroundColor = "lightblue";
+    }else if(insert.value==""){
+        div2.innerHTML = "정답을 입력하세요.";
+        document.body.style.backgroundColor = "lightyellow";
+    }else{
+        div2.innerHTML = "틀렸습니다!";
+        document.body.style.backgroundColor = "coral";
+    }
+
+}
+
+</script>
+</head>
+
+<body onload="createquiz()">
+
+<div id="Time_left"></div>
+<div id="expression" style="display:inline-block;"></div> &nbsp;&nbsp;
+<input style="display:inline-block;" type="text" id="inserted"> <br>
+<input type="button" id="eval" style="display:inline-block;" value="채점" onclick="evaluate1()"> &nbsp;&nbsp;
+<input type="button" id="reload" style="display:inline-block;" value="리로드" onclick="location.reload()">
+<div id="print_result"></div>
+
+</body>
+</html>

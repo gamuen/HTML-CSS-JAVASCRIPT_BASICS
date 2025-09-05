@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<title> </title>
+<meta charset = 'utf-8.0'>
+
+<style>
+td { width:50px; height:50px; border:1px solid orchid; }
+
+</style>
+
+<script>
+
+
+
+</script>
+
+</head>
+
+<body>
+
+
+
+<script>
+let tds;
+ let previndex=0, index=0;
+ window.onload = function () { // 웹 페이지의 로딩 완료 시 처음으로 실행이 됨.
+tds = document.getElementsByTagName("td");
+ tds[index].style.backgroundColor = "orchid";
+ }
+
+window.onkeydown = function (e) {
+switch(e.key) {
+case "ArrowDown" : 
+if(index/6 >= 5) return; 
+index += 6;
+break;
+ case "ArrowUp" : 
+if(index/6 < 1) return; 
+index -= 6;
+ break;
+ case "ArrowLeft" : 
+if(index%6 == 0) return; 
+index--; 
+break;
+ case "ArrowRight" : 
+if(index%6 == 5) return; // 맨 오른쪽 셀의 경우
+index++; 
+break;
+ }
+ // 이제 index 값은 당신이 우른 키보드 키 값에 따라 적절히 바뀌어 있다.
+ // 그러한 previndex 값은 아직 0 에서 바뀌지 않았다. 이제 이 이전 셀의 index 값을 이용해서
+ // 현재 index 값에 해당하는 셀의 배경색을 orchid 로 바꾸고, 이전 index 값에 해당하는 셀의
+ // 배경색을 흰색으로 바꾸는 작업을 한다.
+if(index/6 <1){
+    tds[index].style.backgroundColor = "orchid";
+tds[previndex].style.backgroundColor = "white";
+previndex = index;
+}
+else if(index/6 <2){
+tds[index].style.backgroundColor = "red";
+tds[previndex].style.backgroundColor = "white";
+previndex = index;
+}
+else if(index/6 <3){
+tds[index].style.backgroundColor = "blue";
+tds[previndex].style.backgroundColor = "white";
+previndex = index;
+}
+else if(index/6 <4){
+tds[index].style.backgroundColor = "green";
+tds[previndex].style.backgroundColor = "white";
+previndex = index;
+}
+else if(index/6 <5){
+tds[index].style.backgroundColor = "purple";
+tds[previndex].style.backgroundColor = "white";
+previndex = index;
+}
+else{
+    tds[index].style.backgroundColor = "teal";
+tds[previndex].style.backgroundColor = "white";
+previndex = index;
+}
+ }
+
+
+</script>
+
+
+<table>
+    <tr> <td> </td>  <td> </td> <td> </td> <td> </td> <td> </td> <td> </td></tr>
+    <tr> <td> </td>  <td> </td> <td> </td> <td> </td> <td> </td> <td> </td></tr>
+    <tr> <td> </td>  <td> </td> <td> </td> <td> </td> <td> </td> <td> </td></tr>
+    <tr> <td> </td>  <td> </td> <td> </td> <td> </td> <td> </td> <td> </td></tr>
+    <tr> <td> </td>  <td> </td> <td> </td> <td> </td> <td> </td> <td> </td></tr>
+    <tr> <td> </td>  <td> </td> <td> </td> <td> </td> <td> </td> <td> </td></tr>
+</table>
+
+</body>
+
+</html>

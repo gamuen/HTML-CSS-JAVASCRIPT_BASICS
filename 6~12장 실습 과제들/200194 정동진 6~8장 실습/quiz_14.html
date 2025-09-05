@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>200194 정동진 </title>
+
+<script> 
+
+
+</script>
+
+</head>
+
+<body onload="b()">
+<h3> 프로그래밍 언어
+    <button onclick="a()">Color</button>
+</h3>
+
+<p><span class="class1"> 자바스크립트</span></p>
+<p><span id="idsel1"> C 언어</span></p>
+<p><span class="class1"> java</span></p>
+<p><span class="class1"> python</span></p>
+<p><span id="idsel2"> c++</span></p>
+
+<script>
+
+function b(){
+    let class1_tags = document.getElementsByClassName('class1');
+    for(let i=0; i<class1_tags.length; i++){
+        let class1 = class1_tags[i];
+        class1.style.color='red';
+    }
+}
+function a(){
+    let class1_tags = document.getElementsByClassName('class1');
+    for(let i=0; i<class1_tags.length; i++){
+        let class1 = class1_tags[i];
+        class1.style.color='red';
+    }
+    let idsel1 = document.getElementById('idsel1');
+    idsel1.style.color='blue';
+    idsel1.style.fontWeight='bold';
+    let idsel2 = document.getElementById('idsel2');
+    idsel2.style.color='green';
+    idsel2.style.fontWeight='bold';
+}
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

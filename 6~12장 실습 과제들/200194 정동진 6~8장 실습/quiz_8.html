@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>200194 정동진 </title>
+<style>
+    div{
+        display:inline-block;
+        width:150px;
+        padding:10px;
+    }
+    table {
+    width: 640px; /* 120px * 4 */
+    height:320px;
+  }
+    td{
+        width:160px;
+        height:80px;
+    }
+</style>
+<script> 
+
+
+</script>
+
+</head>
+
+<body>
+
+<div>
+    <table id="table1">
+        <tr> <td> </td>  <td> </td> <td> </td>  <td> </td></tr>
+        <tr> <td> </td>  <td> </td> <td> </td>  <td> </td></tr>
+        <tr> <td> </td>  <td> </td> <td> </td>  <td> </td></tr>
+        <tr> <td> </td>  <td> </td> <td> </td>  <td> </td></tr>
+    </table>
+
+</div>
+
+<h3>16개의 랜덤한 색 만들기.</h3>
+<hr>
+
+<script>
+
+let table = document.getElementById("table1");
+let colorarray=new Array();
+
+for(let i=0; i<16; i++){
+
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    colorarray.push(`rgb(${r}, ${g}, ${b})`);
+}
+
+for(let i=0; i<4; i++){
+    for(let j=0; j<4; j++){
+        let cell = table.rows[i].cells[j];
+        cell.innerHTML = `${colorarray[i*4+j]}`;
+        cell.style.backgroundColor = colorarray[i*4+j];
+    }
+
+}
+</script>
+
+
+
+
+
+</body>
+</html>

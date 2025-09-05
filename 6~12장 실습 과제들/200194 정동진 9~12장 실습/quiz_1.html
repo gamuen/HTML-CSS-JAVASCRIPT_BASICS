@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+
+<title> </title>
+<meta charset = 'utf-8.0'>
+
+<style>
+
+
+</style>
+
+<script>
+
+
+</script>
+
+</head>
+
+<body>
+
+<form>
+수식:<input type="text" id="sentence" onkeydown="func(event)">
+결과 값:<input type="text" id="result"> 
+
+</form>
+
+
+<script>
+
+let sentence = document.getElementById('sentence');
+let result = document.getElementById('result');
+
+function func(e){
+    if(e.key=='Enter'){
+        result.value = eval(sentence.value);
+    }
+}
+
+
+</script>
+
+
+</body>
+
+</html>

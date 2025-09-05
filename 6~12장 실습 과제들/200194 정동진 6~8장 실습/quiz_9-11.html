@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>200194 정동진 </title>
+
+<script> 
+
+let book1 = new Object();
+book1.title="죽고 싶지만 떡볶이는 먹고 싶어";
+book1.author="백세희";
+book1.publisher="흔";
+book1.price=13000;
+
+document.write("<h1>1번째 책 정보</h1>");
+document.write("<p>제목: " + book1.title + "</p>");
+document.write("<p>저자:"+ book1.author +"</p>");
+document.write("<p>출판사: " + book1.publisher + "</p>");
+document.write("<p>가격: " + book1.price + "원</p>");
+
+let book2={
+    title:"보노보노처럼 살다니 다행이야",
+    author:"김신회",
+    publisher:"놀",
+    price:14400
+}
+
+document.write("<h1>2번째 책 정보</h1>");
+document.write("<p>제목: " + book2.title + "</p>");
+document.write("<p>저자:"+ book2.author +"</p>");
+document.write("<p>출판사: " + book2.publisher + "</p>");
+document.write("<p>가격: " + book2.price + "원</p>");
+
+function book3(title, author, publisher, price) {
+    this.title = title;
+    this.author = author;
+    this.publisher = publisher;
+    this.price = price;
+}
+let book3Instance = new book3("코스모스", "칼 에드워드 세이건", "사이언스북스", 18000);
+
+document.write("<h1>3번째 책 정보</h1>");
+document.write("<p>제목: " + book3Instance.title + "</p>");
+document.write("<p>저자:"+ book3Instance.author +"</p>");
+document.write("<p>출판사: " + book3Instance.publisher + "</p>");
+document.write("<p>가격: " + book3Instance.price + "원</p>");
+</script>
+
+</head>
+
+<body>
+
+
+
+
+<script>
+
+
+</script>
+
+
+
+
+
+</body>
+</html>
